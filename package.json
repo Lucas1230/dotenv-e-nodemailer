@@ -1,5 +1,5 @@
 {
-  "name": "psw2-contato",
+  "name": "dotenv e nodemailer ",
   "version": "1.0.0",
   "description": "Atividade PSW2 - formulário de contato com dotenv e nodemailer",
   "main": "app.js",
