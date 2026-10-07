@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Contato</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Contato</h1>
+
+    <% if (sucesso) { %>
+      <div class="alerta sucesso">Mensagem enviada com sucesso!</div>
+    <% } %>
+
+    <% if (erros.length > 0) { %>
+      <div class="alerta erro">
+        <% erros.forEach(function(erro) { %>
+          <p><%= erro.msg %></p>
+        <% }) %>
+      </div>
+    <% } %>
+
+    <form action="/enviar" method="POST">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" placeholder="Seu nome" value="<%= dados.nome || '' %>">
+
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" placeholder="seu@email.com" value="<%= dados.email || '' %>">
+
+      <label for="telefone">Telefone</label>
+      <input type="text" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" value="<%= dados.telefone || '' %>">
+
+      <label for="assunto">Assunto</label>
+      <input type="text" id="assunto" name="assunto" placeholder="Assunto da mensagem" value="<%= dados.assunto || '' %>">
+
+      <label for="mensagem">Mensagem</label>
+      <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem..."><%= dados.mensagem || '' %></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+</body>
+</html>
